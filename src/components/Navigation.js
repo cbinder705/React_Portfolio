@@ -1,35 +1,30 @@
 import React from "react";
-import { Link } from "react-router-dom";
-import AboutMe from "./AboutMe";
-const Navigation() {
+
+const pages = [
+  { href: "aboutMe", pageName: "AboutMe" },
+  { href: "projects", pageName: "Project" },
+  { href: "contact", pageName: "Contact" },
+  { href: "resume", pageName: "Resume" },
+];
+function Navigation({ currentPage, handlePageChange }) {
   return (
     <div className="navbar">
-      <div className="nav-links">
-        {/* <Link className="links" to="/">
-          Home
-        </Link>
-        <Link className="links" to="/categories">
-          Categories
-        </Link>
-        <Link className="links" to="/inventory">
-          Inventory
-        </Link>
-        <Link className="links" to="/login">
-          Login
-        </Link>
-        <Link className="links" to="/signup">
-          Signup
-        </Link> */}
-        Hello
-      </div>
+      <ul className="nav-links">
+        {pages.map((p) => (
+          <li className="nav-item">
+            <a
+              href={`#${p.href}`}
+              onClick={() => handlePageChange(p.pageName)}
+              className={
+                currentPage === p.pageName ? "nav-link active" : "nav-link"
+              }
+            >
+              {p.pageName}
+            </a>
+          </li>
+        ))}
+      </ul>
     </div>
   );
 }
-const PageLinks = [
-  {href: "AboutMe", pageName: "AboutMe"},
-  {href: "Project",pageName: "Projects" },
-  {href: "Contact", pageName: "Contact" }
-
-
-]
 export default Navigation;

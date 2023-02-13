@@ -1,16 +1,10 @@
-import "./App.css";
-import AboutMe from "./components/AboutMe";
-import Navigation from "./components/Navigation";
-import Footer from "./components/Footer";
-import Projects from "./components/Project";
+import React from "react";
+import PageLoader from "./components/PageLoader";
 
 function App() {
   return (
     <div>
-      <AboutMe />
-      <Navigation />
-      <Footer />
-      <Projects />
+      <PageLoader />
     </div>
   );
 }
